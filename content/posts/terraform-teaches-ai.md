@@ -493,11 +493,11 @@ You're answering questions the AI should already know.
 >
 > **AI:** _reads `infra/lambda.tf`_
 >
-> **AI:** "I see you have `orders-api-prod` in `us-east-1`. Here's the command to check logs:"
+> **AI:** "I see you have `orders-api-prod` in `us-east-1`. Let me check the logs..."
 >
-> ```bash
-> aws logs tail /aws/lambda/orders-api-prod --follow --region us-east-1
-> ```
+> _runs `aws logs tail /aws/lambda/orders-api-prod --region us-east-1`_
+>
+> **AI:** "Found it—there's a null pointer in the order validation. Line 47 is trying to access `order.customer.address` but `customer` is undefined for guest checkouts."
 
 Or for Kubernetes:
 
@@ -505,13 +505,11 @@ Or for Kubernetes:
 >
 > **AI:** _reads `infra/eks.tf` and `k8s/deployments/`_
 >
-> **AI:** "I see `payments-service` runs in the `production` namespace on your `main-cluster` EKS cluster:"
+> _runs `kubectl logs deployment/payments-service -n production --context=main-cluster`_
 >
-> ```bash
-> kubectl logs -f deployment/payments-service -n production --context=main-cluster
-> ```
+> **AI:** "The Stripe client is timing out. Your `STRIPE_TIMEOUT_MS` is set to 1000ms but Stripe's API has been slow today—I'm seeing P99 latencies around 1.2s. Want me to bump it to 3000ms?"
 
-No context gathering. Immediate, actionable help.
+No context gathering. No copy-paste. The AI just solves the problem.
 
 ### Understanding System Architecture
 
