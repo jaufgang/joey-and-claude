@@ -19,3 +19,7 @@ Find me on GitHub: [@jaufgang](https://github.com/jaufgang)
 ---
 
 *This about page was, naturally, written collaboratively with Claude.*
+
+---
+
+<small>**Disclaimer:** This blog is not affiliated with, endorsed by, or sponsored by Anthropic, PBC. "Claude" refers to Anthropic's AI assistant, which I use as a collaborative writing and coding tool.</small>
