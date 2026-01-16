@@ -5,15 +5,16 @@ draft: false
 tags: ["terraform", "iac", "ai", "monorepo", "devops"]
 description: "An underappreciated superpower of declarative infrastructure"
 ---
+
 ---
 
-Imagine an AI assistant that doesn't just write Terraform — one that understands your Lambda function connects to _this specific_ RDS instance, which requires _these exact_ IAM policies, which get deployed through _this particular_ GitHub Actions workflow, which depend on _this actual_ database schema.
+Imagine an AI assistant that doesn't just write Terraform — but understands that your Lambda function connects to _this_ RDS instance, secured by _these_ IAM policies, deployed through _this_ GitHub Actions pipeline, operating on _this_ database schema.
 
-That's not a hypothetical. It's what happens when you put everything in one repository.
+That's not a hypothetical. It's what happens when your system is fully defined as code in one repository.
 
-I stumbled onto this while building a full-stack project. The more I worked with AI coding assistants, the more I noticed a pattern: my AI was _dramatically_ more helpful in some projects than others. The difference? Whether the relevant configuration existed as code in my repo.
+Over the past year, while building a full-stack project with AI coding assistants, I noticed something surprising: the quality of AI assistance varied dramatically across different parts of the codebase. The difference wasn't the model. It was the _visibility_ — whether the relevant system knowledge existed as code in the repo.
 
-We've spent the last two years obsessing over how AI can _write_ infrastructure code — [GitHub's custom Terraform agent](https://github.blog/news-insights/product-news/your-stack-your-rules-introducing-custom-agents-in-github-copilot-for-observability-iac-and-security/) reviewing your IaC for issues, [AWS MCP servers](https://aws.amazon.com/blogs/machine-learning/introducing-aws-mcp-servers-for-code-assistants-part-1/) bringing CloudFormation and CDK best practices to your coding assistant. The industry narrative is clear: AI helps you write better infrastructure.
+The industry has spent the past two years focused on how AI can _write_ infrastructure — custom Terraform agents, MCP servers for CloudFormation, HCL autocomplete. The narrative is clear: AI helps you write better infrastructure.
 
 But we've been looking at this backwards.
 
@@ -97,6 +98,22 @@ This isn't just Terraform. It's every declarative artifact that defines your sys
 
 The monorepo doesn't just improve human collaboration — it gives AI the complete picture.
 
+---
+
+## Why This Works: Declarative + Complete + Colocated
+
+What makes this powerful isn't just Terraform. It's the combination of three properties:
+
+**Declarative.** Terraform, database migrations, Kubernetes manifests, CI/CD workflows — these are all _declarations of desired state_, not imperative scripts. LLMs excel at understanding declarative formats because the meaning is explicit. `resource "aws_lambda_function" "api"` is unambiguous in a way that a sequence of CLI commands isn't.
+
+**Complete.** When you have infrastructure, deployment, schema, and config all defined as code, AI sees the whole system. It's not inferring that "there's probably a database somewhere" — it knows the exact RDS instance, its connection string, its schema, and how it's deployed.
+
+**Colocated.** The monorepo puts everything in one context window. AI doesn't need to ask "what's in your infrastructure repo?" or "where are your CI/CD configs?" — it can traverse the graph directly.
+
+Some teams organize this into "planes" — control plane (infrastructure), management plane (CI/CD), data plane (runtime config) — but the labels matter less than the completeness. What matters is: **can your AI see everything that defines how your system works?**
+
+---
+
 ### Discoverability: Giving AI a Map
 
 Having everything in one repo is necessary but not sufficient. The AI still needs to _find_ what it needs. This is where discoverability matters.
@@ -140,17 +157,13 @@ The goal is to minimize the cognitive distance between "I need to understand X" 
 
 ## The Current Conversation: AI → IaC
 
-Before diving deeper into the reverse flow, let's acknowledge what the industry _is_ discussing. The AI-to-infrastructure pipeline is getting significant attention:
+Before diving deeper into the reverse flow, let's acknowledge what the industry _is_ discussing. The AI-to-infrastructure pipeline is getting significant attention.
 
-**AWS IaC MCP Server** (November 2025) lets AI assistants search CDK and CloudFormation documentation, validate templates, and troubleshoot deployments. It's a powerful tool for _writing_ infrastructure.
-
-**HashiCorp's MCP Servers** (announced at HashiConf 2025) enable natural language triggers for Terraform workspace runs. "Deploy my staging environment" becomes an AI-executable command.
-
-**GitHub Copilot and Cursor** provide excellent HCL autocomplete, understanding Terraform syntax and suggesting resource configurations.
+Cloud providers offer MCP servers that let AI assistants search documentation, validate templates, and troubleshoot deployments. HashiCorp enables natural language triggers for Terraform runs. GitHub Copilot and Cursor provide excellent HCL autocomplete. "Deploy my staging environment" is becoming an AI-executable command.
 
 These are valuable tools. But notice the pattern: every one of them focuses on AI _producing_ infrastructure code.
 
-**Pulumi Neo** is perhaps the closest to recognizing the reverse flow. Their [announcement](https://www.pulumi.com/blog/pulumi-neo/) describes an agent that "has a deep understanding of cloud context, IaC, secrets and configuration" — their existing Pulumi platform becomes context that makes their specialized agent smarter. This validates our thesis. But Neo is still focused on infrastructure operations within their ecosystem. The broader insight — that _all_ your declarative artifacts in a monorepo make _any_ AI assistant smarter at understanding your _entire system_ — remains underexplored.
+Pulumi Neo is perhaps the closest to recognizing the reverse flow — their agent "has a deep understanding of cloud context, IaC, secrets and configuration." The existing Pulumi platform becomes context that makes their specialized agent smarter. This validates our thesis. But it's still focused on infrastructure operations within one ecosystem. The broader insight — that _all_ your declarative artifacts in a monorepo make _any_ AI assistant smarter at understanding your _entire system_ — remains underexplored.
 
 ---
 
@@ -299,20 +312,6 @@ This is the key insight: **State bridges the gap between declarative config and 
 - The SQS queue URL or Pub/Sub topic for message tracing
 
 AI doesn't just understand your _architecture_ — it can interact with your _running system_.
-
----
-
-## Why This Works: Declarative + Complete + Colocated
-
-What makes this powerful isn't just Terraform. It's the combination of three properties:
-
-**Declarative.** Terraform, database migrations, Kubernetes manifests, CI/CD workflows — these are all _declarations of desired state_, not imperative scripts. LLMs excel at understanding declarative formats because the meaning is explicit. `resource "aws_lambda_function" "api"` is unambiguous in a way that a sequence of CLI commands isn't.
-
-**Complete.** When you have infrastructure, deployment, schema, and config all defined as code, AI sees the whole system. It's not inferring that "there's probably a database somewhere" — it knows the exact RDS instance, its connection string, its schema, and how it's deployed.
-
-**Colocated.** The monorepo puts everything in one context window. AI doesn't need to ask "what's in your infrastructure repo?" or "where are your CI/CD configs?" — it can traverse the graph directly.
-
-Some teams organize this into "planes" — control plane (infrastructure), management plane (CI/CD), data plane (runtime config) — but the labels matter less than the completeness. What matters is: **can your AI see everything that defines how your system works?**
 
 ---
 
