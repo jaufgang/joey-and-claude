@@ -1,0 +1,36 @@
+baseURL = 'https://jaufgang.github.io/joey-and-claude/'
+languageCode = 'en-us'
+title = 'Joey and Claude'
+theme = 'PaperMod'
+
+[params]
+  defaultTheme = "light"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  description = "Building things together with AI"
+  author = "Joey Aufgang & Claude"
+
+  [params.homeInfoParams]
+    Title = "Joey and Claude"
+    Content = "A blog about building things together with AI. The ideas are Joey's. The words are... collaborative."
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  identifier = "tags"
+  name = "Tags"
+  url = "/tags/"
+  weight = 3
