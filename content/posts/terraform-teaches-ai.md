@@ -12,7 +12,7 @@ Imagine an AI assistant that doesn't just write Terraform — but understands th
 
 That's not a hypothetical. It's what happens when your system is fully defined as code in one repository.
 
-Over the past year, while building a full-stack project with AI coding assistants, I noticed something surprising: the quality of AI assistance varied dramatically across different parts of the codebase. The difference wasn't the model. It was the _visibility_ — whether the relevant system knowledge existed as code in the repo.
+Over the past year, while working with AI coding assistants across multiple projects, I noticed something surprising: the quality of AI assistance varied dramatically from project to project. The difference wasn't the model. It was the _visibility_ — whether the relevant system knowledge existed as code in the repo.
 
 The industry has spent the past two years focused on how AI can _write_ infrastructure — custom Terraform agents, MCP servers for CloudFormation, HCL autocomplete. The narrative is clear: AI helps you write better infrastructure.
 
