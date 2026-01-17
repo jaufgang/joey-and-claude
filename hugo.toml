@@ -14,6 +14,19 @@ theme = 'PaperMod'
   description = "Building things together with AI"
   author = "Joey Aufgang & Claude"
 
+  # Favicon
+  [params.assets]
+    favicon = "/images/favicon-32x32.png"
+    favicon16x16 = "/images/favicon-32x32.png"
+    favicon32x32 = "/images/favicon-32x32.png"
+    apple_touch_icon = "/images/apple-touch-icon.png"
+
+  # Site logo in header
+  [params.label]
+    text = "Joey and Claude"
+    icon = "/images/joey-and-claude.png"
+    iconHeight = 35
+
   [params.homeInfoParams]
     Title = "Joey and Claude"
     Content = "A blog about building things together with AI. The ideas are Joey's. The words are... collaborative."
