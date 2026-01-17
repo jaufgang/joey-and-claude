@@ -1,13 +1,14 @@
 ---
 title: "Why TypeScript Monorepos Are the Ideal AI Development Environment"
-date: 2026-01-16T09:00:00-05:00
+date: 2026-01-15T08:00:00-05:00
 draft: false
 tags: ["typescript", "monorepo", "ai", "shared-types", "full-stack"]
 description: "Shared types as readable artifacts for AI context"
 ---
+
 ---
 
-In my [previous post](./iac-ai-knowledge-base.md), I argued that declarative infrastructure — Terraform, migrations, CI/CD configs — teaches AI about your system. Your configuration code becomes a knowledge base that makes AI assistants dramatically more effective.
+In my [previous post](../iac-ai-knowledge-base.md), I argued that declarative infrastructure — Terraform, migrations, CI/CD configs — teaches AI about your system. Your configuration code becomes a knowledge base that makes AI assistants dramatically more effective.
 
 But infrastructure is only part of the story. What about the application itself?
 
@@ -47,7 +48,7 @@ export interface CreateOrderRequest {
 }
 ```
 
-It doesn't just understand an interface. It understands a *contract* that both ends of the application must honor. And because TypeScript is used on both sides, that contract is enforced at compile time.
+It doesn't just understand an interface. It understands a _contract_ that both ends of the application must honor. And because TypeScript is used on both sides, that contract is enforced at compile time.
 
 ---
 
@@ -67,11 +68,11 @@ import { CreateOrderRequest, OrderResponse } from "@shared";
 import { CreateOrderRequest, OrderResponse } from "@shared";
 ```
 
-When you ask your AI assistant to add a field to the order request, it can modify `shared/src/types/api.ts` and then update *both* the frontend form and the backend handler — in the same language, with the same types, in one coherent change.
+When you ask your AI assistant to add a field to the order request, it can modify `shared/src/types/api.ts` and then update _both_ the frontend form and the backend handler — in the same language, with the same types, in one coherent change.
 
 ### Types as Readable Artifacts
 
-Unlike compiled languages where types disappear into bytecode, TypeScript source files *are* the type definitions. They live in the repo as plain text. AI can read them directly.
+Unlike compiled languages where types disappear into bytecode, TypeScript source files _are_ the type definitions. They live in the repo as plain text. AI can read them directly.
 
 When an AI opens `shared/src/types/models.ts`, it sees:
 
@@ -92,7 +93,7 @@ export interface OrderItem {
 }
 ```
 
-This is a complete specification of the domain model — readable, unambiguous, and *the actual source of truth* for the application.
+This is a complete specification of the domain model — readable, unambiguous, and _the actual source of truth_ for the application.
 
 ### Compile-Time Verification
 
@@ -110,28 +111,28 @@ The feedback loop is tight. AI doesn't have to guess whether changes are consist
 
 ## What About Other Approaches?
 
-TypeScript isn't the *only* way to share contracts across a stack. Other approaches work:
+TypeScript isn't the _only_ way to share contracts across a stack. Other approaches work:
 
-| Approach | How It Works |
-|----------|--------------|
+| Approach            | How It Works                                                  |
+| ------------------- | ------------------------------------------------------------- |
 | **OpenAPI/Swagger** | Define schema once, generate clients for frontend and backend |
-| **GraphQL SDL** | Schema is the contract, codegen produces typed clients |
-| **Protobuf** | Cross-language contract definition with code generation |
-| **JSON Schema** | Language-agnostic type definitions |
+| **GraphQL SDL**     | Schema is the contract, codegen produces typed clients        |
+| **Protobuf**        | Cross-language contract definition with code generation       |
+| **JSON Schema**     | Language-agnostic type definitions                            |
 
 Teams use these successfully. But for AI-assisted development, TypeScript offers distinct advantages:
 
-**No generation step.** The types *are* the contract. No `npm run generate-client` that can get out of sync. No "did you remember to regenerate after changing the schema?"
+**No generation step.** The types _are_ the contract. No `npm run generate-client` that can get out of sync. No "did you remember to regenerate after changing the schema?"
 
 **Token efficiency.** A TypeScript interface is 10 lines. The equivalent OpenAPI spec is 50+. For AI context windows, this matters — less boilerplate means more room for actual reasoning.
 
 **Direct imports.** `import { Order } from "@shared"` in both frontend and backend. AI sees the same file referenced in both places and understands it's a shared contract.
 
-**No indirection.** AI reads the actual type definition, not a schema that *describes* the type. One layer, not two.
+**No indirection.** AI reads the actual type definition, not a schema that _describes_ the type. One layer, not two.
 
 **Same mental model.** AI doesn't switch between "OpenAPI schema language" and "TypeScript application code." It's all TypeScript, all the way through.
 
-The honest framing: OpenAPI, GraphQL, and Protobuf all enable cross-layer contracts. TypeScript is the most *direct* path — fewer tokens, no generation, tighter feedback loops. For AI context, directness matters.
+The honest framing: OpenAPI, GraphQL, and Protobuf all enable cross-layer contracts. TypeScript is the most _direct_ path — fewer tokens, no generation, tighter feedback loops. For AI context, directness matters.
 
 ---
 
@@ -144,6 +145,7 @@ When working with a codebase structured this way, here's what AI can actually do
 "How does an order get from the checkout page to the database?"
 
 AI can follow the path:
+
 1. `ui/src/components/Checkout.tsx` — form sends `CreateOrderRequest`
 2. `shared/src/types/api.ts` — defines the request shape
 3. `api/src/handlers/orders.ts` — receives and validates the request
@@ -157,6 +159,7 @@ All in one repo. All traversable. The shared types are the bridge between layers
 "Add an `expedited` shipping option to orders."
 
 AI updates:
+
 1. `shared/src/types/api.ts` — add `expedited?: boolean` to request type
 2. `shared/src/types/models.ts` — add field to Order model
 3. `ui/src/components/Checkout.tsx` — add expedited shipping checkbox

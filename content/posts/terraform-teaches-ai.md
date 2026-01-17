@@ -1,6 +1,6 @@
 ---
 title: "IaC: Not Just for Ops — A Knowledge Base for AI"
-date: 2026-01-16T08:00:00-05:00
+date: 2026-01-14T08:00:00-05:00
 draft: false
 tags: ["terraform", "iac", "ai", "monorepo", "devops"]
 description: "An underappreciated superpower of declarative infrastructure"
@@ -41,7 +41,7 @@ Consider what a modern AI agent can do when it has access to your complete monor
 3. **Add new Terraform resources** for infrastructure the feature needs
 4. **Write backend code** that correctly references those resources
 5. **Write frontend code** that calls the new backend endpoints
-6. **Ensure types match** between frontend and backend via shared modules
+6. **Ensure types match** between frontend and backend via [shared modules](../shared-types-teach-ai)
 7. **Run builds and tests** to validate everything compiles and passes
 8. **Iterate on failures** until the full stack works together
 

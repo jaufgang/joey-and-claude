@@ -20,7 +20,7 @@ Find me on GitHub: [@jaufgang](https://github.com/jaufgang)
 
 ---
 
-*This about page was, naturally, written collaboratively with Claude.*
+_This about page was, naturally, written collaboratively with Claude._
 
 ---
 

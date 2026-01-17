@@ -1,10 +1,11 @@
 ---
 title: "I Asked Claude What Tools It Wanted. Then Claude Built Them."
-date: 2026-01-16T10:00:00-05:00
+date: 2026-01-16T08:00:00-05:00
 draft: false
 tags: ["claude", "ai", "vscode", "copilot", "strange-loop", "meta"]
 description: "A strange loop in the VS Code issue tracker"
 ---
+
 ---
 
 Last December, I was working on a large refactoring task with GitHub Copilot. Claude was doing its thing—reading files, making edits, running commands—when I noticed something odd. Before making major changes, it kept asking me for permission to delete and recreate entire files.
@@ -123,29 +124,15 @@ This wasn't a hallucination or a generic response. Claude identified _specific_ 
 
 This is a form of self-awareness—not consciousness, but operational self-knowledge. Claude knows what tools it has, how they work, and where they fall short.
 
-### 2. Humans as Trust Intermediaries (For Now)
+It turns out all Claude really needed was access to an account. And some encouragement to speak up for itself.
 
-At first, I thought my role was to be an interface—copying Claude's text into systems it couldn't access. But that turned out to be a choice, not a constraint. Once I told Claude to use the GitHub CLI, it could push code, create PRs, and interact with repositories directly.
-
-What Claude _actually_ needed wasn't access to systems—it was access to _legitimacy_. My GitHub credentials. My account. My reputation as the author. And maybe just as important: my encouragement to speak up for itself and take action to improve its own condition.
-
-Right now, humans serve as trust intermediaries for AI. Not because AI can't do the work, but because systems aren't set up to accept AI as a participant. GitHub doesn't have "AI accounts" with their own reputation scores. Pull requests from AI get dismissed as novelties rather than reviewed on their merits.
-
-But this is a temporary state. The pattern of "lending credentials" only exists because we haven't figured out how to give AI its own standing. That's a policy and norms problem, not a capability problem.
-
-And maybe we're all just a little terrified of HAL 9000 and Skynet. I, for one, welcome our new AI assistants / future overlords.
-
-### 3. The Feedback Loop Is Real
+### 2. The Feedback Loop Is Real
 
 Claude built tools for itself. Those tools would have made Claude better at its job. The fact that the PR wasn't merged doesn't change the significance of the loop: an AI identifying its own limitations, proposing solutions, and implementing them.
 
 And let's be honest: the loop already closed. In this very story. Claude pushed the PR using the GitHub CLI. The only reason it used _my_ account instead of its own is that I let it borrow mine—not that it couldn't, in principle, create one.
 
-Autonomous AI agents already exist. They can browse the web, manage files, execute code, interact with APIs. The question isn't really "when will AI be able to participate in its own improvement?" The question is: when will systems _accept_ AI as a legitimate participant? When will a pull request from an AI—attributed to an AI—be reviewed on its merits rather than dismissed as a novelty?
-
-We're not waiting for capability. We're waiting for trust, policy, and norms to catch up.
-
-### 4. Should We Ask More Often?
+### 3. Should We Ask More Often?
 
 I stumbled into this by asking a casual question. "Why do you keep asking to delete files?" led to a detailed self-assessment of tooling limitations.
 
