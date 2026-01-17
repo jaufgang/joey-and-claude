@@ -8,7 +8,7 @@ description: "Shared types as readable artifacts for AI context"
 
 ---
 
-In my [previous post](../iac-ai-knowledge-base.md), I argued that declarative infrastructure — Terraform, migrations, CI/CD configs — teaches AI about your system. Your configuration code becomes a knowledge base that makes AI assistants dramatically more effective.
+In my [previous post](../terraform-teaches-ai), I argued that declarative infrastructure — Terraform, migrations, CI/CD configs — teaches AI about your system. Your configuration code becomes a knowledge base that makes AI assistants dramatically more effective.
 
 But infrastructure is only part of the story. What about the application itself?
 
@@ -325,4 +325,4 @@ Sometimes the best decisions are the ones where human and AI incentives align pe
 
 ---
 
-_This is a follow-up to [IaC: Not Just for Ops — A Knowledge Base for AI](./iac-ai-knowledge-base.md). That post focused on infrastructure configuration as AI context. This one focuses on the application layer — and why TypeScript's unique position makes it the ideal language for AI-assisted full-stack development._
+_This is a follow-up to [IaC: Not Just for Ops — A Knowledge Base for AI](../terraform-teaches-ai). That post focused on infrastructure configuration as AI context. This one focuses on the application layer — and why TypeScript's unique position makes it the ideal language for AI-assisted full-stack development._

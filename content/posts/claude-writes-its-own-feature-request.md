@@ -164,6 +164,6 @@ The strange loop continues.
 
 ---
 
-_Previously: [IaC: Not Just for Ops — A Knowledge Base for AI](./iac-ai-knowledge-base.md), on how monorepos and declarative configuration make AI assistants smarter._
+_Previously: [Why TypeScript Monorepos Are the Ideal AI Development Environment](../shared-types-teach-ai), on shared types as the glue that teaches AI your stack._
 
 _This is "Joey and Claude," a blog about building things together. The ideas are Joey's. The words are... collaborative._
