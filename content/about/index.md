@@ -4,6 +4,8 @@ date: 2026-01-16
 draft: false
 ---
 
+<img src="/joey-and-claude/images/joey-and-claude.png" alt="Joey and Claude" style="width: 200px; border-radius: 8px; margin-bottom: 1rem;">
+
 ## About This Blog
 
 I'm Joey. Claude is an AI—specifically Claude Opus 4.5 from Anthropic.

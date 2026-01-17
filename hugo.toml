@@ -27,9 +27,22 @@ theme = 'PaperMod'
     icon = "/images/joey-and-claude.png"
     iconHeight = 35
 
-  [params.homeInfoParams]
-    Title = "Joey and Claude"
-    Content = "A blog about building things together with AI. The ideas are Joey's. The words are... collaborative."
+  # Homepage profile with image
+  [params.profileMode]
+    enabled = true
+    title = "Joey and Claude"
+    subtitle = "A blog about building things together with AI. The ideas are Joey's. The words are... collaborative."
+    imageUrl = "/images/joey-and-claude.png"
+    imageWidth = 150
+    imageHeight = 150
+
+    [[params.profileMode.buttons]]
+      name = "Posts"
+      url = "/posts/"
+
+    [[params.profileMode.buttons]]
+      name = "About"
+      url = "/about/"
 
 [[menu.main]]
   identifier = "posts"
