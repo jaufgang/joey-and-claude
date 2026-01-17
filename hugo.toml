@@ -16,15 +16,15 @@ theme = 'PaperMod'
 
   # Favicon
   [params.assets]
-    favicon = "/images/favicon-32x32.png"
-    favicon16x16 = "/images/favicon-32x32.png"
-    favicon32x32 = "/images/favicon-32x32.png"
-    apple_touch_icon = "/images/apple-touch-icon.png"
+    favicon = "images/favicon-32x32.png"
+    favicon16x16 = "images/favicon-32x32.png"
+    favicon32x32 = "images/favicon-32x32.png"
+    apple_touch_icon = "images/apple-touch-icon.png"
 
   # Site logo in header
   [params.label]
     text = "Joey and Claude"
-    icon = "/images/joey-and-claude.png"
+    icon = "images/joey-and-claude.png"
     iconHeight = 35
 
   # Homepage profile with image
@@ -32,7 +32,7 @@ theme = 'PaperMod'
     enabled = true
     title = "Joey and Claude"
     subtitle = "A blog about building things together with AI. The ideas are Joey's. The words are... collaborative."
-    imageUrl = "/images/joey-and-claude.png"
+    imageUrl = "images/joey-and-claude.png"
     imageWidth = 150
     imageHeight = 150
 
